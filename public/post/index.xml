@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post on Cupper</title>
+    <link>https://example.com/post/</link>
+    <description>Recent content in Post on Cupper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Sep 2023 00:25:08 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post3</title>
+      <link>https://example.com/post3/</link>
+      <pubDate>Tue, 19 Sep 2023 21:05:04 +0800</pubDate>
+      
+      <guid>https://example.com/post3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Post2</title>
+      <link>https://example.com/post2/</link>
+      <pubDate>Tue, 19 Sep 2023 00:43:27 +0800</pubDate>
+      
+      <guid>https://example.com/post2/</guid>
+      <description>this is a second post</description>
+    </item>
+    
+    <item>
+      <title>Post1</title>
+      <link>https://example.com/post1/</link>
+      <pubDate>Tue, 19 Sep 2023 00:18:22 +0800</pubDate>
+      
+      <guid>https://example.com/post1/</guid>
+      <description>hey this is my post 13</description>
+    </item>
+    
+  </channel>
+</rss>
