@@ -1,7 +1,7 @@
 baseURL = "https://example.com"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Cupper"
+title = "Khoshrozeh"
 theme = "cupper-hugo-theme"
 googleAnalytics = "UA-123456789-1"
 disqusShortname = "yourdiscussshortname"
@@ -17,7 +17,7 @@ post = "/:filename/"
 quality = 99
 
 [params]
-description = "eme, ported from the [original Cupper](https://github.com/ThePacielloGroup/cupper) project."
+description = "Anthony Khoshrozeh. 2023."
 homeMetaContent = "An -friendly Hugo theme, ported from the original Cupper project."
 footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/)."
 dateFormat = "Jan 2, 2006"
@@ -57,10 +57,6 @@ name = "About"
 url = "/about/"
 weight = 4
 
-[[menu.nav]]
-name = "RSS"
-url = "/index.xml"
-weight = 5
 
 [markup]
 defaultMarkdownHandler = "goldmark"

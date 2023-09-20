@@ -5,4 +5,6 @@ draft = false
 +++
 
 
-This is the home page!
+Hello! My name is Anthony Khoshrozeh and this is my site. I write about all things related to security and computer science. Check out my posts.
+
+You can reach me at akhoshrozeh@gmail.com

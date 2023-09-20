@@ -1,64 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cupper</title>
+    <title>Khoshrozeh</title>
     <link>https://example.com/</link>
-    <description>Recent content on Cupper</description>
+    <description>Recent content on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:12:55 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Post3</title>
-      <link>https://example.com/post3/</link>
-      <pubDate>Tue, 19 Sep 2023 21:05:04 +0800</pubDate>
+      <title>About</title>
+      <link>https://example.com/about/</link>
+      <pubDate>Wed, 20 Sep 2023 11:48:29 +0800</pubDate>
       
-      <guid>https://example.com/post3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Post2</title>
-      <link>https://example.com/post2/</link>
-      <pubDate>Tue, 19 Sep 2023 00:43:27 +0800</pubDate>
-      
-      <guid>https://example.com/post2/</guid>
-      <description>this is a second post</description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>https://example.com/tags/tag2/</link>
-      <pubDate>Tue, 19 Sep 2023 00:34:03 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Post1</title>
-      <link>https://example.com/post1/</link>
-      <pubDate>Tue, 19 Sep 2023 00:18:22 +0800</pubDate>
-      
-      <guid>https://example.com/post1/</guid>
-      <description>hey this is my post 13</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/tags/tag3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/tags/tag3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/tags/tag4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/tags/tag4/</guid>
-      <description></description>
+      <guid>https://example.com/about/</guid>
+      <description>I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022.</description>
     </item>
     
   </channel>

@@ -1,65 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cupper</title>
+    <title>Tags on Khoshrozeh</title>
     <link>https://example.com/tags/</link>
-    <description>Recent content in Tags on Cupper</description>
+    <description>Recent content in Tags on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:34:03 +0800</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>tag10</title>
-      <link>https://example.com/tags/tag10/</link>
-      <pubDate>Tue, 19 Sep 2023 21:05:04 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag10/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag10.1</title>
-      <link>https://example.com/tags/tag10.1/</link>
-      <pubDate>Tue, 19 Sep 2023 21:05:04 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag10.1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag1</title>
-      <link>https://example.com/tags/tag1/</link>
-      <pubDate>Tue, 19 Sep 2023 00:43:27 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag5</title>
-      <link>https://example.com/tags/tag5/</link>
-      <pubDate>Tue, 19 Sep 2023 00:43:27 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag2</title>
-      <link>https://example.com/tags/tag2/</link>
-      <pubDate>Tue, 19 Sep 2023 00:18:22 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag3</title>
-      <link>https://example.com/tags/tag3/</link>
-      <pubDate>Tue, 19 Sep 2023 00:18:22 +0800</pubDate>
-      
-      <guid>https://example.com/tags/tag3/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
