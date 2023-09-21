@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTF on Khoshrozeh</title>
-    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/ctf/</link>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/CTF/</link>
     <description>Recent content in CTF on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Sep 2023 14:04:57 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 14:04:57 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/CTF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF Writeup: RootMe</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/</link>

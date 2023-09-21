@@ -20,12 +20,13 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
     </item>
     
     <item>
-      <title>About</title>
+      <title>About Me</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/about/</link>
       <pubDate>Wed, 20 Sep 2023 11:48:29 +0800</pubDate>
       
       <guid>https://akhoshrozeh.github.io/khoshrozeh.com/about/</guid>
-      <description>I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022.</description>
+      <description>I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022. I am very passionate about all things related to cybersecurity, in particular penetration testing and securing systems (networks, OS, software). I love learning new things and challenging myself. Being able to see yourself grow as a great feeling.
+I am currently looking for work in the cybersecurity industry, preferably as a penetration tester or security engineer.</description>
     </item>
     
   </channel>

@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TryHackMe on Khoshrozeh</title>
-    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/tryhackme/</link>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/</link>
     <description>Recent content in TryHackMe on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Sep 2023 14:04:57 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/tryhackme/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 14:04:57 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF Writeup: RootMe</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/</link>
