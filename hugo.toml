@@ -56,7 +56,7 @@ weight = 4
 
 [[menu.nav]]
 name = "Resume"
-url = "/Anthony_Khoshrozeh_Resume.pdf/"
+url = "/Anthony_Khoshrozeh_Resume.pdf"
 weight = 3
 
 
