@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Khoshrozeh</title>
-    <link>https://akhoshrozeh.github.io/khoshrozeh.com/</link>
-    <description>Recent content on Khoshrozeh</description>
+    <title>CTF on Khoshrozeh</title>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/ctf/</link>
+    <description>Recent content in CTF on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Sep 2023 00:12:55 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 14:04:57 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF Writeup: RootMe</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/</link>
@@ -17,15 +17,6 @@
 Reconnaissance We’ll start with nmap to run a TCP SYN scan with some parallelism and collect service version information as well:
 sudo nmap -sS -sV --min-parallelism 20 10.10.48.220
 Note: we need to run SYN scans with escalated privileges because it is a more stealthy scan than say a TCP Connect scan.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://akhoshrozeh.github.io/khoshrozeh.com/about/</link>
-      <pubDate>Wed, 20 Sep 2023 11:48:29 +0800</pubDate>
-      
-      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/about/</guid>
-      <description>I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022.</description>
     </item>
     
   </channel>

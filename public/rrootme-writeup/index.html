@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/rrootme-writeup/" />
 
   
     
-    <meta name="description" content="Tags">
+    <meta name="description" content="RootMe Writeup">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -60,7 +60,7 @@
 
   
   
-  <title>Tags | Khoshrozeh</title>
+  <title>RootMe Writeup | Khoshrozeh</title>
 </head>
 
   <body>
@@ -212,7 +212,7 @@
       
       
       
-      <a href="/khoshrozeh.com/post/" >
+      <a href="/khoshrozeh.com/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -225,7 +225,7 @@
       
       
       
-      <a href="/khoshrozeh.com/tags/" aria-current="page">
+      <a href="/khoshrozeh.com/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -256,77 +256,123 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use href="#bookmark"></use>
+      </svg>
+      RootMe Writeup
+    </h1>
+
+    <div class="date">
       
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/ctf/">
+      
+      <strong>Publish date: </strong>Sep 21, 2023
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use href="#tag"></use>
               </svg>
-              (1) CTF
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/gobuster/">
+              
+              <a href="/khoshrozeh.com/tags/ctf/">CTF</a>
+            </li>
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use href="#tag"></use>
               </svg>
-              (1) gobuster
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/nmap/">
+              
+              <a href="/khoshrozeh.com/tags/tryhackme/">TryHackMe</a>
+            </li>
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use href="#tag"></use>
               </svg>
-              (1) Nmap
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/privilege-escalation/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              (1) Privilege Escalation
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/suid/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              (1) SUID
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/khoshrozeh.com/tags/tryhackme/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              (1) TryHackMe
-            </a>
-          </h2>
-        </li>
-      
-    </ul>
+              
+              <a href="/khoshrozeh.com/tags/nmap/">Nmap</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+
+
+    
   </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
+  
+<script src="https://utteranc.es/client.js"
+        repo="username/username.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<style>
+    .utterances-frame {
+        background-color: transparent;
+    }
+</style>
+<script>
+    function changeTheme(theme) {
+        const message = {
+            type: "set-theme",
+            theme
+        };
+        const utteranc = document.querySelector(".utterances-frame");
+        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+    }
+
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            
+            if (!document.getElementById("darkTheme").disabled) {
+                changeTheme("photon-dark");
+            }
+            
+            document.getElementById("themer").addEventListener("click", () => {
+                changeTheme(document.getElementById("darkTheme").disabled ? "photon-dark" : "github-light");
+            });
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by
+    utterances.</a></noscript>
+
 
           
             <footer role="contentinfo">

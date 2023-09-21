@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/ctf/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/gobuster/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/nmap/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/privilege-escalation/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/suid/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/tryhackme/</loc>
+    <lastmod>2023-09-21T14:04:57+08:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/about/</loc>
     <lastmod>2023-09-20T12:00:47+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/</loc>
     <lastmod>2023-09-20T11:30:53+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/</loc>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/post/</loc>
     <lastmod>2023-09-20T11:30:53+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/</loc>
     <lastmod>2023-09-20T12:00:47+08:00</lastmod>
   </url>
 </urlset>
