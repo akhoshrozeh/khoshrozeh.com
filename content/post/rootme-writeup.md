@@ -116,6 +116,12 @@ Now we need to find the root flag. I saw the /root folder earlier, so that’s p
 And there it is: root.txt. The flag is **THM{pr1v1l3g3_3sc4l4t10n}**. And the room is complete!
 
 ### Conclusion
+Takeaways: 
+- Ensure proper access controls on web pages! Hidden directories can be easy to find; don't rely on [security by obscurity](https://en.wikipedia.org/wiki/Security_through_obscurity).
+- Ensure thorough filtering for file uploads! You can refer to the [OWASP cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) for different techniques to prevent attacks and fix vulnerabilities.
+- Be careful when setting the SUID bit. Always think about how a malicious user could exploit this. Make sure you know what a binary/file's capabilities are before giving users privileged access when running it. GTFObins is a great resource for this. 
+
+
 This was a very straightforward CTF and took me a little less than an hour to solve. The biggest issue I had was my slow and unreliable network was caused a lot of delay for me. Although the room was pretty simple it was still enjoyable and also I think was a good warmup for getting back into my pentesting tools. I’m definitely looking forward to more challenging CTFs!
 
 

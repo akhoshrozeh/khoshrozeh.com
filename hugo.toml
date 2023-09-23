@@ -66,6 +66,11 @@ url = "/about/"
 weight = 2
 
 
+[[menu.nav]]
+name = "Contact/Links"
+url = "/contact/"
+weight = 4
+
 [markup]
 defaultMarkdownHandler = "goldmark"
 

@@ -254,6 +254,19 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       
       
       
+      <a href="/khoshrozeh.com/contact/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use href="#bookmark"></use>
+        </svg>
+        <span class="text">Contact/Links</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
       <a href="/khoshrozeh.com/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
@@ -422,6 +435,12 @@ PWD=/</p>
 <p>Now we need to find the root flag. I saw the /root folder earlier, so that’s probably where the flag is. No need for <code>find</code>, yet.</p>
 <p>And there it is: root.txt. The flag is <strong>THM{pr1v1l3g3_3sc4l4t10n}</strong>. And the room is complete!</p>
 <h3 id="conclusion">Conclusion</h3>
+<p>Takeaways:</p>
+<ul>
+<li>Ensure proper access controls on web pages! Hidden directories can be easy to find; don&rsquo;t rely on <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security by obscurity</a>.</li>
+<li>Ensure thorough filtering for file uploads! You can refer to the <a href="https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html">OWASP cheat sheet</a> for different techniques to prevent attacks and fix vulnerabilities.</li>
+<li>Be careful when setting the SUID bit. Always think about how a malicious user could exploit this. Make sure you know what a binary/file&rsquo;s capabilities are before giving users privileged access when running it. GTFObins is a great resource for this.</li>
+</ul>
 <p>This was a very straightforward CTF and took me a little less than an hour to solve. The biggest issue I had was my slow and unreliable network was caused a lot of delay for me. Although the room was pretty simple it was still enjoyable and also I think was a good warmup for getting back into my pentesting tools. I’m definitely looking forward to more challenging CTFs!</p>
 
   </main>
