@@ -6,14 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Ciphers/" />
 
   
     
-    <meta name="description" content="Introduction Here, I’m going to show how I solved the RootMe CTF on TryHackMe. It’s supposed to be for beginners so let’s jump in and find out!
-Reconnaissance We’ll start with nmap to run a TCP SYN scan with some parallelism and collect service version information as well:
-sudo nmap -sS -sV --min-parallelism 20 10.10.48.220
-Note: we need to run SYN scans with escalated privileges because it is a more stealthy scan than say a TCP Connect scan.">
+    <meta name="description" content="Ciphers">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -63,7 +60,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
 
   
   
-  <title>CTF Writeup: RootMe | Khoshrozeh</title>
+  <title>Ciphers | Khoshrozeh</title>
 </head>
 
   <body>
@@ -228,7 +225,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       
       
       
-      <a href="/khoshrozeh.com/post/" aria-current="page">
+      <a href="/khoshrozeh.com/post/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -267,7 +264,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       
       
       
-      <a href="/khoshrozeh.com/tags/" >
+      <a href="/khoshrozeh.com/tags/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -284,229 +281,36 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       <div class="main-and-footer">
         <div>
           
-  <main id="main">
-    <h1>
-      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use href="#bookmark"></use>
-      </svg>
-      CTF Writeup: RootMe
-    </h1>
-
-    <div class="date">
-      
-      
-      <strong>Publish date: </strong>Sep 21, 2023
-      
-        
-          <br>
-          <strong>Last updated: </strong>Sep 23, 2023
-        
-      
-    </div>
-
-    
-      <div class="tags">
-        <strong>Tags: </strong>
-        <ul aria-label="tags">
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/CTF/">CTF</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/TryHackMe/">TryHackMe</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/Nmap/">Nmap</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/gobuster/">gobuster</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/Privilege-Escalation/">Privilege Escalation</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use href="#tag"></use>
-              </svg>
-              
-              <a href="/khoshrozeh.com/tags/SUID/">SUID</a>
-            </li>
-          
-        </ul>
-      </div>
-    
-
-    
-
-
-    <h3 id="introduction">Introduction</h3>
-<p>Here, I&rsquo;m going to show how I solved the <a href="https://tryhackme.com/room/rrootme">RootMe</a> CTF on TryHackMe. It&rsquo;s supposed to be for beginners so let&rsquo;s jump in and find out!</p>
-<h3 id="reconnaissance">Reconnaissance</h3>
-<p>We’ll start with nmap to run a TCP SYN scan with some parallelism and collect service version information as well:</p>
-<p><code>sudo nmap -sS -sV --min-parallelism 20 10.10.48.220</code></p>
-<p>Note: we need to run SYN scans with escalated privileges because it is a more stealthy scan than say a TCP Connect scan.</p>
-<p>We see two ports are open, 22 and 80, which are for SSH and HTTP. (OpenSSH and Apache, in this case).
-<img src="../post/rootme-pics/nmap%20scan.png" alt=""></p>
-<p>With this we can answer the first 3 questions.</p>
-<p>Question 1:
-<strong><em>Scan the machine, how many ports are open?</em></strong><br>
-2</p>
-<p>Question 2:
-<strong><em>What version of Apache is running?</em></strong><br>
-2.4.29</p>
-<p>Question 3:
-<strong><em>What service is running on port 22?</em></strong><br>
-ssh</p>
-<p>Question 4:
-<strong><em>Find directories on the web server.</em></strong></p>
-<p>Let’s break out gobuster and see if there’s any hidden directories we might find interesting. And why not use some multithreading to speed it up. We’ll use a directory list from the Kali wordlists.<br>
-<code>gobuster dir -u http://10.10.48.220:80  -t 50 -w ~/kali-wordlists/dirbuster/directory-list-1.0.txt</code></p>
-<p>Question 5:
-<strong><em>What is the hidden directory?</em></strong><br>
-After we run gobuster for a few minutes, it finds a few directories: <code>/panel</code>, <code>/uploads</code>, <code>/js</code> and <code>/css</code>.</p>
-<h3 id="getting-a-shell">Getting a shell</h3>
-<p><strong><em>Find a form to upload and get a reverse shell, and find the flag.</em></strong></p>
-<p>First I checkout <code>/panels</code> see it’s a file upload form. Perfect! We can probably exploit this if there’s no advanced filter on what types of files can be uploaded. I then look at <code>/uploads</code>, which appears to list the files that we upload. Great, I have the idea. To get a reverse shell, first upload a php script to the target, then make that script run by clicking on the file in the <code>/uploads</code> directory. So now let’s try and get a reverse shell.</p>
-<p>First I&rsquo;ll create the netcat listener.<br>
-<code>nc -vnl 4242</code></p>
-<p>Let’s create a php file to create a reverse shell. I download a php reverse shell script <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php">here</a>, edit IP address so it connects to my machine and upload it via the <code>/panels</code> page.</p>
-<p>When we try to upload the php file, we get an error in Portugese saying .php files are not permitted.</p>
-<p>I remember encountering a similar error on the Vulnversity room on TryHackMe. We were able to find which files were accepted using Burp Intruder. The one that worked was .phtml, so let’s just try that first and see if it works before we break out Burp.</p>
-<p>After changing the file extension to .phtml, success! Great, now let’s go to /uploads and click on our .phtml file.</p>
-<p>Sweet, we’ve opened a shell into our target machine.
-<img src="../post/rootme-pics/reverse%20shell.png" alt=""></p>
-<p>Before we go further, let&rsquo;s stablize our shell first since netcat isn&rsquo;t inherently stable. Here&rsquo;s how we can do it:</p>
-<ol>
-<li><code>python -c 'import pty;pty.spawn(&quot;/bin/bash&quot;)'</code>, which uses Python to spawn a better featured bash shell.</li>
-<li><code>export TERM=xterm</code> &ndash; this will give us access to term commands such as <code>clear</code>.</li>
-<li>Finally (and most importantly) we will background the shell using Ctrl + Z. Back in our own terminal we use <code>stty raw -echo; fg</code>. This does two things: first, it turns off our own terminal echo (which gives us access to tab autocompletes, the arrow keys, and Ctrl + C to kill processes). It then foregrounds the shell, thus completing the process.</li>
-</ol>
-<p>Okay, resuming with the CTF&hellip; We’re looking for a flag which probably has a .txt file ending. Before running <code>find</code> on the entire system which might take a while, let’s start with specific directories. First <code>/home</code>. Nothing there.
-Let’s try <code>/var</code>. Boom. We found <code>/var/www/user.txt</code>, which contains the flag: <strong>THM{y0u_g0t_a_sh3ll}</strong></p>
-<h3 id="privilege-escalation">Privilege Escalation</h3>
-<p>Let’s start with a bit of enumeration to get some basic information on this system.</p>
-<p><code>/proc/version</code>:<br>
-Linux version 4.15.0-112-generic (buildd@lcy01-amd64-027) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020</p>
-<p><code>Uname -a</code>:<br>
-Linux rootme 4.15.0-112-generic #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p><code>env</code>:<br>
-APACHE_RUN_DIR=/var/run/apache2
-APACHE_PID_FILE=/var/run/apache2/apache2.pid
-JOURNAL_STREAM=9:19643
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-INVOCATION_ID=35d9a12342194225a79b40345767f29d
-APACHE_LOCK_DIR=/var/lock/apache2
-LANG=C
-APACHE_RUN_USER=www-data
-APACHE_RUN_GROUP=www-data
-APACHE_LOG_DIR=/var/log/apache2
-PWD=/</p>
-<p>I see there&rsquo;s an exploit on <a href="https://www.exploit-db.com/exploits/47167">exploit-db</a> that escalates privilege via the <a href="https://github.blog/2021-06-10-privilege-escalation-polkit-root-on-linux-with-bug/">polkit technique</a>.</p>
-<p>However looking at the prompts for the CTF, it wants us to exploit files with the SUID bit set. So let’s see what programs have the SUID bit set. This is often an easy way to escalate privilege.</p>
-<p>I run <code>find / -perm  -u=s -type f 2&gt;/dev/null</code> which returns many files but one in particular stands out: <code>/usr/bin/python</code>. Its owner is root, so any python commands we run will run as if root is running it. Easy!</p>
-<p>Let’s go to <a href="https://gtfobins.github.io/">GTFObins</a> click on the python binary and get the command for the SUID section.
-<code>python -c 'import os; os.execl(&quot;/bin/sh&quot;, &quot;sh&quot;, &quot;-p&quot;)'</code></p>
-<p>Paste that into our shell and boom. We have root now and can confirm it by running <code>whoami</code> in the shell.</p>
-<p>Now we need to find the root flag. I saw the /root folder earlier, so that’s probably where the flag is. No need for <code>find</code>, yet.</p>
-<p>And there it is: root.txt. The flag is <strong>THM{pr1v1l3g3_3sc4l4t10n}</strong>. And the room is complete!</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>Takeaways:</p>
-<ul>
-<li>Ensure proper access controls on web pages! Hidden directories can be easy to find; don&rsquo;t rely on <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security by obscurity</a>.</li>
-<li>Ensure thorough filtering for file uploads! You can refer to the <a href="https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html">OWASP cheat sheet</a> for different techniques to prevent attacks and fix vulnerabilities.</li>
-<li>Be careful when setting the SUID bit. Always think about how a malicious user could exploit this. Make sure you know what a binary/file&rsquo;s capabilities are before giving users privileged access when running it. GTFObins is a great resource for this.</li>
-</ul>
-<p>This was a very straightforward CTF and took me a little less than an hour to solve. The biggest issue I had was my slow and unreliable network was caused a lot of delay for me. Although the room was pretty simple it was still enjoyable and also I think was a good warmup for getting back into my pentesting tools. I’m definitely looking forward to more challenging CTFs!</p>
-
-  </main>
-  <div id="disqus-container">
+<main id="main">
+  <h1>Ciphers</h1>
   
-    <button id="disqus-button" onclick="showComments()">Show comments</button>
-    <div id="disqus-comments">
-      
-      
-      
-        <p><em>Disqus comments are disabled.</em></p>
-        <script type="application/javascript">
-          function showComments() {
-            // Remove button
-var disqusButton = document.getElementById('disqus-button');
-disqusButton.parentNode.removeChild(disqusButton); 
-// Un-hide comments
-var disqusComments = document.getElementById('disqus-comments');
-disqusComments.style.display = 'block'; 
-          }
-        </script>
-      
-      <noscript>Enable JavaScript to view Disqus comments.</noscript>
-    </div>
+  <input
+    id="search"
+    type="text"
+    placeholder="Search by title..."
+    aria-label="Search by title"
+  />
   
-</div>
-
-  
-<script src="https://utteranc.es/client.js"
-        repo="username/username.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-<style>
-    .utterances-frame {
-        background-color: transparent;
-    }
-</style>
-<script>
-    function changeTheme(theme) {
-        const message = {
-            type: "set-theme",
-            theme
-        };
-        const utteranc = document.querySelector(".utterances-frame");
-        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
-    }
-
-    document.onreadystatechange = () => {
-        if (document.readyState === "complete") {
-            
-            if (!document.getElementById("darkTheme").disabled) {
-                changeTheme("photon-dark");
-            }
-            
-            document.getElementById("themer").addEventListener("click", () => {
-                changeTheme(document.getElementById("darkTheme").disabled ? "photon-dark" : "github-light");
-            });
-        }
-    };
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by
-    utterances.</a></noscript>
-
+  <ul class="patterns-list" id="list">
+    
+    <li>
+      <h2>
+        <a href="/khoshrozeh.com/break-out-the-cage/">
+          <svg
+            class="bookmark"
+            aria-hidden="true"
+            viewBox="0 0 40 50"
+            focusable="false"
+          >
+            <use href="#bookmark"></use>
+          </svg>
+          CTF Writeup: Break Out the Cage
+        </a>
+      </h2>
+    </li>
+    
+  </ul>
+</main>
 
           
             <footer role="contentinfo">

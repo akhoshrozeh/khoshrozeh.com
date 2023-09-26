@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ciphers on Khoshrozeh</title>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Ciphers/</link>
+    <description>Recent content in Ciphers on Khoshrozeh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Sep 2023 21:52:54 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Ciphers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF Writeup: Break Out the Cage</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/</guid>
+      <description>Introduction This CTF on TryHackMe has no instructions and only three questions:
+What is Weston&amp;rsquo;s password? What&amp;rsquo;s the user flag? What&amp;rsquo;s the root flag? Let&amp;rsquo;s spin up the virtual machine and get hacking.
+Break Out the Cage The only clue we start with is there&amp;rsquo;s a person named Weston.
+We&amp;rsquo;ll start with a TCP SYN port scan to see services are running, as well as gathering the service and OS information.</description>
+    </item>
+    
+  </channel>
+</rss>

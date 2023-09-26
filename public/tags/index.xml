@@ -8,11 +8,128 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:34:03 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Bind Shell</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Bind-Shell/</link>
+      <pubDate>Tue, 26 Sep 2023 16:00:46 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Bind-Shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reverse Shell</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Reverse-Shell/</link>
+      <pubDate>Tue, 26 Sep 2023 16:00:46 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Reverse-Shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell Stabilization</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Shell-Stabilization/</link>
+      <pubDate>Tue, 26 Sep 2023 16:00:46 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Shell-Stabilization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ciphers</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Ciphers/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Ciphers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>CTF</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/CTF/</link>
-      <pubDate>Fri, 22 Sep 2023 01:58:01 +0800</pubDate>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
       
       <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/CTF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Linux/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Privilege Escalation</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Privilege-Escalation/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Privilege-Escalation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Steganography</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Steganography/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Steganography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TryHackMe</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asset Discovery</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Asset-Discovery/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Asset-Discovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Information Gathering</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Information-Gathering/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Information-Gathering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pentester Tools</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Pentester-Tools/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Pentester-Tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reconnaissance</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Reconnaissance/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Reconnaissance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subdomain Enumeration</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Subdomain-Enumeration/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Subdomain-Enumeration/</guid>
       <description></description>
     </item>
     
@@ -31,15 +148,6 @@
       <pubDate>Fri, 22 Sep 2023 01:58:01 +0800</pubDate>
       
       <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/OWASP-Top-10/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TryHackMe</title>
-      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/</link>
-      <pubDate>Fri, 22 Sep 2023 01:58:01 +0800</pubDate>
-      
-      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/TryHackMe/</guid>
       <description></description>
     </item>
     
@@ -67,15 +175,6 @@
       <pubDate>Thu, 21 Sep 2023 14:04:57 +0800</pubDate>
       
       <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Nmap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Privilege Escalation</title>
-      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Privilege-Escalation/</link>
-      <pubDate>Thu, 21 Sep 2023 14:04:57 +0800</pubDate>
-      
-      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Privilege-Escalation/</guid>
       <description></description>
     </item>
     

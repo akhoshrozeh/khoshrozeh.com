@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/rootme-writeup/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/" />
 
   
     
-    <meta name="description" content="Introduction Here, I’m going to show how I solved the RootMe CTF on TryHackMe. It’s supposed to be for beginners so let’s jump in and find out!
-Reconnaissance We’ll start with nmap to run a TCP SYN scan with some parallelism and collect service version information as well:
-sudo nmap -sS -sV --min-parallelism 20 10.10.48.220
-Note: we need to run SYN scans with escalated privileges because it is a more stealthy scan than say a TCP Connect scan.">
+    <meta name="description" content="Introduction This CTF on TryHackMe has no instructions and only three questions:
+What is Weston’s password? What’s the user flag? What’s the root flag? Let’s spin up the virtual machine and get hacking.
+Break Out the Cage The only clue we start with is there’s a person named Weston.
+We’ll start with a TCP SYN port scan to see services are running, as well as gathering the service and OS information.">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -63,7 +63,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
 
   
   
-  <title>CTF Writeup: RootMe | Khoshrozeh</title>
+  <title>CTF Writeup: Break Out the Cage | Khoshrozeh</title>
 </head>
 
   <body>
@@ -289,17 +289,14 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use href="#bookmark"></use>
       </svg>
-      CTF Writeup: RootMe
+      CTF Writeup: Break Out the Cage
     </h1>
 
     <div class="date">
       
       
-      <strong>Publish date: </strong>Sep 21, 2023
+      <strong>Publish date: </strong>Sep 25, 2023
       
-        
-          <br>
-          <strong>Last updated: </strong>Sep 23, 2023
         
       
     </div>
@@ -330,7 +327,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
                 <use href="#tag"></use>
               </svg>
               
-              <a href="/khoshrozeh.com/tags/Nmap/">Nmap</a>
+              <a href="/khoshrozeh.com/tags/Linux/">Linux</a>
             </li>
           
             <li>
@@ -338,7 +335,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
                 <use href="#tag"></use>
               </svg>
               
-              <a href="/khoshrozeh.com/tags/gobuster/">gobuster</a>
+              <a href="/khoshrozeh.com/tags/Steganography/">Steganography</a>
             </li>
           
             <li>
@@ -354,7 +351,7 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
                 <use href="#tag"></use>
               </svg>
               
-              <a href="/khoshrozeh.com/tags/SUID/">SUID</a>
+              <a href="/khoshrozeh.com/tags/Ciphers/">Ciphers</a>
             </li>
           
         </ul>
@@ -365,83 +362,112 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
 
 
     <h3 id="introduction">Introduction</h3>
-<p>Here, I&rsquo;m going to show how I solved the <a href="https://tryhackme.com/room/rrootme">RootMe</a> CTF on TryHackMe. It&rsquo;s supposed to be for beginners so let&rsquo;s jump in and find out!</p>
-<h3 id="reconnaissance">Reconnaissance</h3>
-<p>We’ll start with nmap to run a TCP SYN scan with some parallelism and collect service version information as well:</p>
-<p><code>sudo nmap -sS -sV --min-parallelism 20 10.10.48.220</code></p>
-<p>Note: we need to run SYN scans with escalated privileges because it is a more stealthy scan than say a TCP Connect scan.</p>
-<p>We see two ports are open, 22 and 80, which are for SSH and HTTP. (OpenSSH and Apache, in this case).
-<img src="../post/rootme-pics/nmap%20scan.png" alt=""></p>
-<p>With this we can answer the first 3 questions.</p>
-<p>Question 1:
-<strong><em>Scan the machine, how many ports are open?</em></strong><br>
-2</p>
-<p>Question 2:
-<strong><em>What version of Apache is running?</em></strong><br>
-2.4.29</p>
-<p>Question 3:
-<strong><em>What service is running on port 22?</em></strong><br>
-ssh</p>
-<p>Question 4:
-<strong><em>Find directories on the web server.</em></strong></p>
-<p>Let’s break out gobuster and see if there’s any hidden directories we might find interesting. And why not use some multithreading to speed it up. We’ll use a directory list from the Kali wordlists.<br>
-<code>gobuster dir -u http://10.10.48.220:80  -t 50 -w ~/kali-wordlists/dirbuster/directory-list-1.0.txt</code></p>
-<p>Question 5:
-<strong><em>What is the hidden directory?</em></strong><br>
-After we run gobuster for a few minutes, it finds a few directories: <code>/panel</code>, <code>/uploads</code>, <code>/js</code> and <code>/css</code>.</p>
-<h3 id="getting-a-shell">Getting a shell</h3>
-<p><strong><em>Find a form to upload and get a reverse shell, and find the flag.</em></strong></p>
-<p>First I checkout <code>/panels</code> see it’s a file upload form. Perfect! We can probably exploit this if there’s no advanced filter on what types of files can be uploaded. I then look at <code>/uploads</code>, which appears to list the files that we upload. Great, I have the idea. To get a reverse shell, first upload a php script to the target, then make that script run by clicking on the file in the <code>/uploads</code> directory. So now let’s try and get a reverse shell.</p>
-<p>First I&rsquo;ll create the netcat listener.<br>
-<code>nc -vnl 4242</code></p>
-<p>Let’s create a php file to create a reverse shell. I download a php reverse shell script <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php">here</a>, edit IP address so it connects to my machine and upload it via the <code>/panels</code> page.</p>
-<p>When we try to upload the php file, we get an error in Portugese saying .php files are not permitted.</p>
-<p>I remember encountering a similar error on the Vulnversity room on TryHackMe. We were able to find which files were accepted using Burp Intruder. The one that worked was .phtml, so let’s just try that first and see if it works before we break out Burp.</p>
-<p>After changing the file extension to .phtml, success! Great, now let’s go to /uploads and click on our .phtml file.</p>
-<p>Sweet, we’ve opened a shell into our target machine.
-<img src="../post/rootme-pics/reverse%20shell.png" alt=""></p>
-<p>Before we go further, let&rsquo;s stablize our shell first since netcat isn&rsquo;t inherently stable. Here&rsquo;s how we can do it:</p>
+<p>This <a href="https://tryhackme.com/room/breakoutthecage1">CTF</a> on TryHackMe has no instructions and only three questions:</p>
 <ol>
-<li><code>python -c 'import pty;pty.spawn(&quot;/bin/bash&quot;)'</code>, which uses Python to spawn a better featured bash shell.</li>
-<li><code>export TERM=xterm</code> &ndash; this will give us access to term commands such as <code>clear</code>.</li>
-<li>Finally (and most importantly) we will background the shell using Ctrl + Z. Back in our own terminal we use <code>stty raw -echo; fg</code>. This does two things: first, it turns off our own terminal echo (which gives us access to tab autocompletes, the arrow keys, and Ctrl + C to kill processes). It then foregrounds the shell, thus completing the process.</li>
+<li>What is Weston&rsquo;s password?</li>
+<li>What&rsquo;s the user flag?</li>
+<li>What&rsquo;s the root flag?</li>
 </ol>
-<p>Okay, resuming with the CTF&hellip; We’re looking for a flag which probably has a .txt file ending. Before running <code>find</code> on the entire system which might take a while, let’s start with specific directories. First <code>/home</code>. Nothing there.
-Let’s try <code>/var</code>. Boom. We found <code>/var/www/user.txt</code>, which contains the flag: <strong>THM{y0u_g0t_a_sh3ll}</strong></p>
-<h3 id="privilege-escalation">Privilege Escalation</h3>
-<p>Let’s start with a bit of enumeration to get some basic information on this system.</p>
-<p><code>/proc/version</code>:<br>
-Linux version 4.15.0-112-generic (buildd@lcy01-amd64-027) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020</p>
-<p><code>Uname -a</code>:<br>
-Linux rootme 4.15.0-112-generic #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p><code>env</code>:<br>
-APACHE_RUN_DIR=/var/run/apache2
-APACHE_PID_FILE=/var/run/apache2/apache2.pid
-JOURNAL_STREAM=9:19643
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-INVOCATION_ID=35d9a12342194225a79b40345767f29d
-APACHE_LOCK_DIR=/var/lock/apache2
-LANG=C
-APACHE_RUN_USER=www-data
-APACHE_RUN_GROUP=www-data
-APACHE_LOG_DIR=/var/log/apache2
-PWD=/</p>
-<p>I see there&rsquo;s an exploit on <a href="https://www.exploit-db.com/exploits/47167">exploit-db</a> that escalates privilege via the <a href="https://github.blog/2021-06-10-privilege-escalation-polkit-root-on-linux-with-bug/">polkit technique</a>.</p>
-<p>However looking at the prompts for the CTF, it wants us to exploit files with the SUID bit set. So let’s see what programs have the SUID bit set. This is often an easy way to escalate privilege.</p>
-<p>I run <code>find / -perm  -u=s -type f 2&gt;/dev/null</code> which returns many files but one in particular stands out: <code>/usr/bin/python</code>. Its owner is root, so any python commands we run will run as if root is running it. Easy!</p>
-<p>Let’s go to <a href="https://gtfobins.github.io/">GTFObins</a> click on the python binary and get the command for the SUID section.
-<code>python -c 'import os; os.execl(&quot;/bin/sh&quot;, &quot;sh&quot;, &quot;-p&quot;)'</code></p>
-<p>Paste that into our shell and boom. We have root now and can confirm it by running <code>whoami</code> in the shell.</p>
-<p>Now we need to find the root flag. I saw the /root folder earlier, so that’s probably where the flag is. No need for <code>find</code>, yet.</p>
-<p>And there it is: root.txt. The flag is <strong>THM{pr1v1l3g3_3sc4l4t10n}</strong>. And the room is complete!</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>Takeaways:</p>
+<p>Let&rsquo;s spin up the virtual machine and get hacking.</p>
+<h3 id="break-out-the-cage">Break Out the Cage</h3>
+<p>The only clue we start with is there&rsquo;s a person named Weston.</p>
+<p>We&rsquo;ll start with a TCP SYN port scan to see services are running, as well as gathering the service and OS information.</p>
+<p><code>sudo nmap -sS -sV -O --min-parallelism 20 10.10.157.193</code></p>
+<p>We have 3 services running: ftp, ssh and http (all on their standard ports 21, 22 and 80).
+The versions are (respectively):</p>
 <ul>
-<li>Ensure proper access controls on web pages! Hidden directories can be easy to find; don&rsquo;t rely on <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security by obscurity</a>.</li>
-<li>Ensure thorough filtering for file uploads! You can refer to the <a href="https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html">OWASP cheat sheet</a> for different techniques to prevent attacks and fix vulnerabilities.</li>
-<li>Be careful when setting the SUID bit. Always think about how a malicious user could exploit this. Make sure you know what a binary/file&rsquo;s capabilities are before giving users privileged access when running it. GTFObins is a great resource for this.</li>
+<li>vsftpd 3.0.3</li>
+<li>OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)</li>
+<li>Apache httpd 2.4.29 ((Ubuntu))</li>
 </ul>
-<p>This was a very straightforward CTF and took me a little less than an hour to solve. The biggest issue I had was my slow and unreliable network was caused a lot of delay for me. Although the room was pretty simple it was still enjoyable and also I think was a good warmup for getting back into my pentesting tools. I’m definitely looking forward to more challenging CTFs!</p>
+<p>The website has HTML list items that you would expect to redirect to another page, such as &ldquo;About Me&rdquo;, &ldquo;Contact&rdquo;, etc., but they all actually just reference the root directory. I found nothing really interesting by walking the site.</p>
+<p>Let&rsquo;s start <code>gobuster</code> to start bruteforcing sub-directories on the http server:<br>
+<code>gobuster dir -u http://10.10.224.92:80  -t 50 -w ~/wordlists/kali-wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt | anew dirs</code></p>
+<p><em>Note: anew is similar to <code>tee -a</code></em></p>
+<p>I found the following directories:</p>
+<pre><code>/images
+/html
+/scripts
+/contracts
+/auditions
+</code></pre>
+<p>/images just shows all the images used in the homepage.
+/html is empty.
+/scripts contains partial scripts for movies. I investigated the page&rsquo;s source for hidden comments but found nothing.
+/contracts contains a folder /FolderNotInUse which is empty.
+/auditions contains an file, &ldquo;must_practice_corrupt_file.mp3&rdquo;, which is the only interesting thing I found.</p>
+<p>I downloaded the file with <code>wget</code> and upon listening, there&rsquo;s clearly a portion of the audio that&rsquo;s been tampered with. I grab any human readable characters out the file with the <code>strings</code> command. However, I didn&rsquo;t find anything interesting. I thought perhaps some information may be stored in there visually so I put the file into a spectogram using &ldquo;Sonic Visualizer&rdquo;. There&rsquo;s a visible word written in what looks like MS Word Art, &ldquo;namelesstwo&rdquo;. Ah, steganography.</p>
+<p>Interesting. Maybe it&rsquo;s a password? It try to ssh into the server with Weston (I tried lowercase too) but that&rsquo;s not the password. Let&rsquo;s investigate the other services.</p>
+<p>I tried to login via ssh with an anonymous account but that didn&rsquo;t work.
+I also tried the same with ftp and it did work!</p>
+<p>There&rsquo;s a file called <code>dad_tasks</code> so I download it to my local machine with <code>get dad_tasks</code> and open it:</p>
+<pre><code>UWFwdyBFZWtjbCAtIFB2ciBSTUtQLi4uWFpXIFZXVVIuLi4gVFRJIFhFRi4uLiBMQUEgWlJHUVJPISEhIQpTZncuIEtham5tYiB4c2kgb3d1b3dnZQpGYXouIFRtbCBma2ZyIHFnc2VpayBhZyBvcWVpYngKRWxqd3guIFhpbCBicWkgYWlrbGJ5d3FlClJzZnYuIFp3ZWwgdnZtIGltZWwgc3VtZWJ0IGxxd2RzZmsKWWVqci4gVHFlbmwgVnN3IHN2bnQgInVycXNqZXRwd2JuIGVpbnlqYW11IiB3Zi4KCkl6IGdsd3cgQSB5a2Z0ZWYuLi4uIFFqaHN2Ym91dW9leGNtdndrd3dhdGZsbHh1Z2hoYmJjbXlkaXp3bGtic2lkaXVzY3ds
+</code></pre>
+<p>Looks like it&rsquo;s encoded in base64 so let&rsquo;s decode it with the base64 command:
+<code>echo {THE_STRING} | base64 --decode</code></p>
+<p>and it outputs this:</p>
+<pre><code>Qapw Eekcl - Pvr RMKP...XZW VWUR... TTI XEF... LAA ZRGQRO!!!!
+Sfw. Kajnmb xsi owuowge
+Faz. Tml fkfr qgseik ag oqeibx
+Eljwx. Xil bqi aiklbywqe
+Rsfv. Zwel vvm imel sumebt lqwdsfk
+Yejr. Tqenl Vsw svnt &quot;urqsjetpwbn einyjamu&quot; wf.
+Iz glww A ykftef.... Qjhsvbouuoexcmvwkwwatfllxughhbbcmydizwlkbsidiuscwl
+</code></pre>
+<p>It looks like it&rsquo;s using a Caeser cipher so I try to bruteforce it with quipqiup but nothing intelligeble gets returned, so maybe it&rsquo;s not a Caesar cipher. We can use <a href="boxentriq.com">boxentriq</a> to determine what kind of cipher we&rsquo;re looking at. It reports that it&rsquo;s actually a Vigenere Cipher. This cipher requires a key so I try the phrase from the audio file as the key.</p>
+<p>It worked! It outputs:</p>
+<pre><code>Dads Tasks - The RAGE...THE CAGE... THE MAN... THE LEGEND!!!!
+One. Revamp the website
+Two. Put more quotes in script
+Three. Buy bee pesticide
+Four. Help him with acting lessons
+Five. Teach Dad what &quot;information security&quot; is.
+In case I forget.... Mydadisghostrideraintthatcoolnocausehesonfirejokes
+</code></pre>
+<p>From the note, it appears as if Weston wrote it. And it says &ldquo;In case <em>I</em> forget&rdquo; which makes me think the following string is <em>his</em> password. I try it as the password with ssh.</p>
+<p>It works! Great, we&rsquo;ve now gained access to the server as <code>weston</code> and found the first flag. Now let&rsquo;s look around.</p>
+<p>I get a broadcast while ssh&rsquo;ed:</p>
+<pre><code>Broadcast message from cage@national-treasure (somewhere) (Tue Sep 26 06:00:01 
+What's in the bag? A shark or something? — The Wicker Man
+</code></pre>
+<p>Interesting, I&rsquo;ll come back to this.</p>
+<p>I want to gain root access so I first check if there&rsquo;s any programs with the setuid bit set and there&rsquo;s none.
+I then check if there&rsquo;s any programs weston can run as root using <code>sudo -l</code>. The program <code>/usr/bin/bees</code> can be run as root by me so let&rsquo;s see what that program is.</p>
+<p>It&rsquo;s shell script that has one line:
+wall &ldquo;AHHHHHHH THEEEEE BEEEEESSSS!!!!!!!!&rdquo;</p>
+<p>wall is a program that writes a message to all others and is probably what&rsquo;s being used for those broadcast messages I&rsquo;m getting. &lsquo;bees&rsquo; is also a read-only file, otherwise we could change the script spawn a shell with root access.</p>
+<p>I think the broadcast message I got is probably set as a cronjob, which is a surface that can be vulnerable for privilege escalation. Let&rsquo;s see the cron jobs in <code>/etc/crontab</code>.</p>
+<p>Nothing interesting there. I still don&rsquo;t know where the program that is that&rsquo;s sending these messages is, so I&rsquo;ll grep the system looking for a file that contains the &lsquo;wall&rsquo; program:
+<code>grep -r &quot;wall &quot; 2&gt;&gt; /dev/null | tee -a /var/tmp/grep_wall</code></p>
+<p><em>Note: I&rsquo;m using &rsquo;tee -a&rsquo; now since &lsquo;anew&rsquo; isn&rsquo;t installed on this system.</em></p>
+<p>While grep is running, some more messages appear:</p>
+<pre><code>Broadcast message from cage@national-treasure (somewhere) (Tue Sep 26 06:03:01 
+Well, I'm one of those fortunate people who like my job, sir. Got my first chemistry set when I was seven, blew my eyebrows off, we never saw the cat again, been into it ever since. — The Rock
+                                                                        
+Broadcast message from cage@national-treasure (somewhere) (Tue Sep 26 06:06:01                                                                                
+That's funny, my name's Roger. Two Rogers don't make a right! — Gone in Sixty Seconds
+</code></pre>
+<p>Ok, so these messages come in set intervals of 3 minutes (note the time). Again, I want to find out from which script it&rsquo;s coming from.</p>
+<p>The grep finishes so start looking through it. After searching through <code>grep_wall</code> , I find something interesting!</p>
+<p>There&rsquo;s folder in /opt called <code>.dads_scripts</code> which contains <code>spread_the_quotes.py</code>. This is the python script:
+#!/usr/bin/env python</p>
+<pre><code>#Copyright Weston 2k20 (Dad couldnt write this with all the time in the world!)
+import os
+import random
+
+lines = open(&quot;/opt/.dads_scripts/.files/.quotes&quot;).read().splitlines()
+quote = random.choice(lines)
+os.system(&quot;wall &quot; + quote)
+</code></pre>
+<p>The owner and group name is &lsquo;cage&rsquo;, but if we want to edit this we have to be logged in as cage; the group doesn&rsquo;t have write permissions. However, there&rsquo;s <code>.quotes</code> file inside which it reads from. And that file has write permissions set for the &lsquo;cage&rsquo; group. By looking at <code>/etc/group</code>, we see that <code>weston</code> is part of the group! Great. We can edit the .quotes file to have code that spawns a reverse shell as the user &lsquo;cage&rsquo;. While we&rsquo;re not gaining root privilege, we can notice that &lsquo;cage&rsquo; has higher privileges than &lsquo;weston&rsquo; and perhaps &lsquo;cage&rsquo; has access to programs that will grant us root access.</p>
+<p>So we wait until the script is ran again and then the reverse shell spawns in another terminal we were listening on with netcat. We&rsquo;re now logged in as cage. After <a href="../stabilizing-shell">stabilizing the shell</a>, I see inside cage&rsquo;s home directory there&rsquo;s a file called <code>Super_Duper_Checklist</code> which contains the second flag!</p>
+<p>Now we finally need to find the root flag.</p>
+<p>There&rsquo;s a directory in his home folder called <code>email_backup</code>. One of the emails hints that the string &lsquo;<code>haiinspsyanileph</code>&rsquo; has to do with the password for <code>root</code>, which is who is the person &lsquo;Sean&rsquo;. The emails mention that Sean is obsessed with his <strong><em>face</em></strong>.</p>
+<p>I try to login as root with that string but it&rsquo;s not the password. It looks like an encrypted string that uses a simple cipher. Back to boxentriq to analyze the text, which suggests it&rsquo;s a Columnar Transposition Cipher. So we need to look for the key. I try <code>face</code> but that doesn&rsquo;t work, as well as <code>namelesstwo</code> which also doesn&rsquo;t work. Maybe it&rsquo;s not using that cipher? Since we already used a Vigenere Cipher, I try that instead and use <code>face</code>. And it works! The password for root is <code>cageisnotalegend</code>.</p>
+<p>After gaining root access, can find another <code>email_backups</code> folder inside <code>/root</code>, which contains the final flag.</p>
+<p>Room complete!</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>I feel like this CTF was more about finding clues than hacking into a system. Nonetheless, I still enjoyed it as it required knowledge of various areas of security: steganography, cryptography, OS concepts, reverse shells and forensics.</p>
 
   </main>
   <div id="disqus-container">

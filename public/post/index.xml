@@ -8,6 +8,40 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:25:08 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Stabilizing Shells</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/stabilizing-shell/</link>
+      <pubDate>Tue, 26 Sep 2023 16:00:46 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/stabilizing-shell/</guid>
+      <description>Introduction Spawning shells in CTFs and pentesting is an extremely common task and we don&amp;rsquo;t want to have to deal getting disconnected from target, as well as the inconvenience of using a shell with limited shortcuts and controls. Here are 3 methods to stabilize your shell. Personally, I like to use Technique 1 in CTFs.
+Technique 1: Python Applicable to on Linux, since they almost always have Python installed.
+python -c &#39;import pty;pty.</description>
+    </item>
+    
+    <item>
+      <title>CTF Writeup: Break Out the Cage</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/</link>
+      <pubDate>Mon, 25 Sep 2023 21:52:54 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/</guid>
+      <description>Introduction This CTF on TryHackMe has no instructions and only three questions:
+What is Weston&amp;rsquo;s password? What&amp;rsquo;s the user flag? What&amp;rsquo;s the root flag? Let&amp;rsquo;s spin up the virtual machine and get hacking.
+Break Out the Cage The only clue we start with is there&amp;rsquo;s a person named Weston.
+We&amp;rsquo;ll start with a TCP SYN port scan to see services are running, as well as gathering the service and OS information.</description>
+    </item>
+    
+    <item>
+      <title>Recon Tactics and Tools with TomNomNom</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/tomnomnom-recon-tools/</link>
+      <pubDate>Mon, 25 Sep 2023 13:51:05 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/tomnomnom-recon-tools/</guid>
+      <description>Introduction In this post I&amp;rsquo;m going to go over some reconnaissance tools, most of them built by well known and respected hacker TomNomNom, or Tom Hudson. I&amp;rsquo;m also going to cover some of his methodologies and techinques, for example how he utilizes VIM in his recon.
+You can find and install his tools from his github.
+I&amp;rsquo;m going to demonstrate some of these tactics on Admiral Labs which currently has a bug bounty on HackerOne.</description>
+    </item>
+    
+    <item>
       <title>CTF Writeup: OWASP Juice Shop</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/owasp-juice-shop-writeup/</link>
       <pubDate>Fri, 22 Sep 2023 01:58:01 +0800</pubDate>
