@@ -8,6 +8,27 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:12:55 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Network Device Hardening</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/network-device-hardening/</link>
+      <pubDate>Thu, 28 Sep 2023 18:11:55 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/network-device-hardening/</guid>
+      <description>Introduction In this post, I&amp;rsquo;m going to go over some common threats and hardening techniques for various network devices including VPNs, routers, switches and more. Since organizations&amp;rsquo; networks are almost always a critical aspect of their security, it is important that the proper steps are taken to secure it. While no system can ever be 100% secure, we still can greatly reduce the organization&amp;rsquo;s risk by preventing, detecting and responding appropriately and promptly to attacks.</description>
+    </item>
+    
+    <item>
+      <title>CTF Writeup: Lian Yu</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/lian-yu-writeup/</link>
+      <pubDate>Wed, 27 Sep 2023 17:48:51 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/lian-yu-writeup/</guid>
+      <description>Introduction This CTF looks pretty straightforward based on the questions. I think I&amp;rsquo;ll try and do a speed run on it and do the writeup at the same time.
+These are the questions:
+What is the Web Directory you found? what is the file name you found? what is the FTP Password? what is the file name with SSH password? user.txt root.txt Let&amp;rsquo;s go!
+CTF Directory enumeration: gobuster dir -u http://10.</description>
+    </item>
+    
+    <item>
       <title>Stabilizing Shells</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/stabilizing-shell/</link>
       <pubDate>Tue, 26 Sep 2023 16:00:46 +0800</pubDate>
@@ -84,15 +105,6 @@ Note: we need to run SYN scans with escalated privileges because it is a more st
       <guid>https://akhoshrozeh.github.io/khoshrozeh.com/about/</guid>
       <description>I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022. I am very passionate about all things related to cybersecurity, in particular penetration testing and hardening systems&amp;rsquo; security (networks, OS, software). I love learning new things and challenging myself through CTFs.
 I am currently looking for work in the cybersecurity industry as an entry level penetration tester or security engineer.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://akhoshrozeh.github.io/khoshrozeh.com/posts/break-out-the-cage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/posts/break-out-the-cage/</guid>
-      <description></description>
     </item>
     
   </channel>

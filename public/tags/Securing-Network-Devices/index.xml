@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Securing Network Devices on Khoshrozeh</title>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Securing-Network-Devices/</link>
+    <description>Recent content in Securing Network Devices on Khoshrozeh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2023 18:11:55 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Securing-Network-Devices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network Device Hardening</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/network-device-hardening/</link>
+      <pubDate>Thu, 28 Sep 2023 18:11:55 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/network-device-hardening/</guid>
+      <description>Introduction In this post, I&amp;rsquo;m going to go over some common threats and hardening techniques for various network devices including VPNs, routers, switches and more. Since organizations&amp;rsquo; networks are almost always a critical aspect of their security, it is important that the proper steps are taken to secure it. While no system can ever be 100% secure, we still can greatly reduce the organization&amp;rsquo;s risk by preventing, detecting and responding appropriately and promptly to attacks.</description>
+    </item>
+    
+  </channel>
+</rss>

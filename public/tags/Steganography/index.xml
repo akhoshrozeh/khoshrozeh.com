@@ -6,7 +6,19 @@
     <description>Recent content in Steganography on Khoshrozeh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Sep 2023 21:52:54 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Steganography/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Sep 2023 17:48:51 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Steganography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF Writeup: Lian Yu</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/lian-yu-writeup/</link>
+      <pubDate>Wed, 27 Sep 2023 17:48:51 +0800</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/lian-yu-writeup/</guid>
+      <description>Introduction This CTF looks pretty straightforward based on the questions. I think I&amp;rsquo;ll try and do a speed run on it and do the writeup at the same time.
+These are the questions:
+What is the Web Directory you found? what is the file name you found? what is the FTP Password? what is the file name with SSH password? user.txt root.txt Let&amp;rsquo;s go!
+CTF Directory enumeration: gobuster dir -u http://10.</description>
+    </item>
+    
     <item>
       <title>CTF Writeup: Break Out the Cage</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/break-out-the-cage/</link>
