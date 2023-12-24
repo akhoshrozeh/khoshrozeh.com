@@ -20,7 +20,7 @@ quality = 99
 [params]
 description = ""
 homeMetaContent = "Anthony Khoshrozeh Blog."
-footer = "akhoshrozeh@gmail.com | [LinkedIn](https://www.linkedin.com/in/anthony-khoshrozeh/) | [Github](https://github.com/akhoshrozeh)"
+footer = "akhoshrozeh@gmail.com | [LinkedIn](https://www.linkedin.com/in/akhoshrozeh/) | [Github](https://github.com/akhoshrozeh)"
 # footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme)." #
 dateFormat = "Jan 2, 2006"
 codePenUser = "someUser"
@@ -63,6 +63,11 @@ weight = 3
 [[menu.nav]]
 name = "About Me"
 url = "/about/"
+weight = 2
+
+[[menu.nav]]
+name = "Projects"
+url = "/projects/"
 weight = 2
 
 

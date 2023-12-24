@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Khoshrozeh</title>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/projects/</link>
+    <description>Recent content in Projects on Khoshrozeh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Dec 2023 08:48:20 -0500</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drone Paths</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/projects/drone-paths/</link>
+      <pubDate>Sun, 24 Dec 2023 08:51:14 -0500</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/projects/drone-paths/</guid>
+      <description>This was a really interesting project I did for my Graph Theory class at UCLA. The context for the problem is the following:
+A company plans to use drones to drop sensors to the locations your scheme designated on the map, and wants your help on planning the routes of the drones. You are asked to work out two scenarios:
+Scenario 1:
+The company will use a large drone that can carry all the sensors; however, this drone consumes fuel fast, and thus it is important to minimize the total travel distance of the drone.</description>
+    </item>
+    
+  </channel>
+</rss>

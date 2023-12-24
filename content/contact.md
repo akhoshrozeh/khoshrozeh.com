@@ -5,6 +5,5 @@ draft = false
 +++
 
 akhoshrozeh@gmail.com\
-[LinkedIn](https://www.linkedin.com/in/anthony-khoshrozeh)\
-[Github](https://www.github.com/akhoshrozeh)\
-[My TryHackMe Account](https://tryhackme.com/p/akhoshrozeh) (Top 8%)
+[LinkedIn](https://www.linkedin.com/in/akhoshrozeh)\
+[Github](https://www.github.com/akhoshrozeh)
