@@ -6,7 +6,8 @@ tags = ["Python", "Google API"]
 +++
 
 ### Context
-This is a project I did from UCLA where I implemented a server herd archiecture in Python. The idea for architecture comes from the application server being a bottleneck. In the server herd architecture, multiple application servers communicate directly with each other and the core database, handling rapidly evolving data while the database manages more stable, less frequently accessed information. This project also explores using the asyncio library for communication.
+
+This is a project I did from UCLA where I implemented a server herd architecture in Python. The idea for the architecture comes from the application server being a bottleneck. In the server herd architecture, multiple application servers communicate directly with each other and the core database, handling rapidly evolving data while the database manages more stable, less frequently accessed information. This project also explores using the asyncio library for communication.
 
 ### Description
 
@@ -16,7 +17,7 @@ The objective was to assess the viability of asyncio for real-time communication
 
 The outcome provided insights into asyncio's capabilities for facilitating rapid communication among distributed servers, managing client requests, and handling asynchronous tasks efficiently within a Python-based architecture.
 
-You can find the code and report below. 
+You can find the code and report below.
 
-[Report](../assets/server-herd-report.pdf) \
-[Code](https://github.com/akhoshrozeh/server-herd-architecture/blob/main/server.py)
+-> [Report](../assets/server-herd-report.pdf) \
+-> [Code](https://github.com/akhoshrozeh/server-herd-architecture/blob/main/server.py)

@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Google-API/</loc>
+    <lastmod>2023-12-24T17:58:03-05:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Python/</loc>
+    <lastmod>2023-12-24T17:58:03-05:00</lastmod>
+  </url><url>
+    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/projects/server-herd-architecture/</loc>
+    <lastmod>2023-12-24T17:58:03-05:00</lastmod>
+  </url><url>
     <loc>https://akhoshrozeh.github.io/khoshrozeh.com/projects/drone-paths/</loc>
     <lastmod>2023-12-24T10:54:27-05:00</lastmod>
   </url><url>
     <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Graph-Theory/</loc>
-    <lastmod>2023-12-24T10:54:27-05:00</lastmod>
-  </url><url>
-    <loc>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Python/</loc>
     <lastmod>2023-12-24T10:54:27-05:00</lastmod>
   </url><url>
     <loc>https://akhoshrozeh.github.io/khoshrozeh.com/projects/</loc>

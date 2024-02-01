@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:12:55 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Server Herd Architecture</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/projects/server-herd-architecture/</link>
+      <pubDate>Sun, 24 Dec 2023 17:23:57 -0500</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/projects/server-herd-architecture/</guid>
+      <description>Context This is a project I did from UCLA where I implemented a server herd architecture in Python. The idea for the architecture comes from the application server being a bottleneck. In the server herd architecture, multiple application servers communicate directly with each other and the core database, handling rapidly evolving data while the database manages more stable, less frequently accessed information. This project also explores using the asyncio library for communication.</description>
+    </item>
+    
+    <item>
       <title>Drone Paths</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/projects/drone-paths/</link>
       <pubDate>Sun, 24 Dec 2023 08:51:14 -0500</pubDate>
