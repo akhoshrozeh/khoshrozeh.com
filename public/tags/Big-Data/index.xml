@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Big Data on Khoshrozeh</title>
+    <link>https://akhoshrozeh.github.io/khoshrozeh.com/tags/Big-Data/</link>
+    <description>Recent content in Big Data on Khoshrozeh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Dec 2023 09:02:25 -0500</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/tags/Big-Data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS ETL Youtube Pipeline</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/projects/aws-etl-youtube-pipeline/</link>
+      <pubDate>Mon, 25 Dec 2023 09:02:25 -0500</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/projects/aws-etl-youtube-pipeline/</guid>
+      <description>Tech Stack ➔ Languages: SQL, Python3 ➔ Services: AWS: S3, Glue, QuickSight, Lambda, Athena, IAM ➔ SDK: AWS Data Wrangler
+Introduction In this project, we&amp;rsquo;re simulating a client&amp;rsquo;s needs for a data-driven campaign through an AWS data pipline. Such a task could be useful for a client who plans to advertise on Youtube and wants to get better insight on what factors can help make a video more popular. SEE LEARNING GOALS Questions to answer:</description>
+    </item>
+    
+  </channel>
+</rss>

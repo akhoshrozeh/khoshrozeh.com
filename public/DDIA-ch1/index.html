@@ -6,11 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/DDIA-ch1/" />
 
   
     
-    <meta name="description" content="Projects">
+    <meta name="description" content="Note: The following information comes Martin Kleppmann’s “Designing Data-Intensive Applications”. The following post is a recap/discussion of ideas from Chapter 1.
+Introduction In this post, we’re going to look at what we mean by the terms reliable, scalable and maintainable. We’re also going to examine how we can try to achieve these goals for our system.
+Apps are data intensive, not computationally expensive
+problems: amount, complexity, and rate of change of data">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -60,7 +63,7 @@
 
   
   
-  <title>Projects | Khoshrozeh</title>
+  <title>Reliable, Scalable, and Maintainable Applications | Khoshrozeh</title>
 </head>
 
   <body>
@@ -225,7 +228,7 @@
       
       
       
-      <a href="/khoshrozeh.com/projects/" aria-current="page">
+      <a href="/khoshrozeh.com/projects/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -238,7 +241,7 @@
       
       
       
-      <a href="/khoshrozeh.com/post/" >
+      <a href="/khoshrozeh.com/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -294,68 +297,286 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Projects</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use href="#bookmark"></use>
+      </svg>
+      Reliable, Scalable, and Maintainable Applications
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Dec 29, 2023
+      
+        
+          <br>
+          <strong>Last updated: </strong>Feb 1, 2024
+        
+      
+    </div>
+
+    
+
+    
+
+
+    <p><em>Note: The following information comes Martin Kleppmann&rsquo;s &ldquo;Designing Data-Intensive Applications&rdquo;. The following post is a recap/discussion of ideas from Chapter 1.</em></p>
+<h3 id="introduction">Introduction</h3>
+<p>In this post, we&rsquo;re going to look at what we mean by the terms reliable, scalable and maintainable. We&rsquo;re also going to examine how we can try to achieve these goals for our system.</p>
+<ul>
+<li>
+<p>Apps are data intensive, not computationally expensive</p>
+</li>
+<li>
+<p>problems: amount, complexity, and rate of change of data</p>
+</li>
+<li>
+<p>all the different data building blocks have many different implementations and  characteristics for different cases</p>
+<ul>
+<li>DBs, caches, search indexes, stream processing, batch processing, message queues, etc.</li>
+<li>choosing the right one can have a huge affect on performance</li>
+<li>*** give example</li>
+</ul>
+</li>
+<li>
+<p>why the term data systems?</p>
+<ul>
+<li>the boundaries between these data systems are becoming increasingly blurred</li>
+<li>many systems require many of these tools for data processing/storage</li>
+</ul>
+</li>
+</ul>
+<h3 id="reliability">Reliability</h3>
+<ul>
+<li>continuing to work correctly even when things go wrong, aka a fault occurs</li>
+<li>we want fault tolerant or resilient systems
+A fault is usually defined as one com‐ ponent of the system deviating from its spec, whereas a failure is when the system as a whole stops providing the required service to the user. It is impossible to reduce the probability of a fault to zero; therefore it is usually best to design fault-tolerance mechanisms that prevent faults from causing failures.</li>
+</ul>
+<p>Although we generally prefer tolerating faults over preventing faults, there are cases where prevention is better than cure
+- preventing a hacker from compromising the system</p>
+<h4 id="hardware-faults">Hardware faults</h4>
+<p>Redundancy:
+- for HD, RAM, CPUs, Power, etc.
+-  This approach cannot completely prevent hardware problems from causing failures, but it is well understood and can often keep a machine running uninterrupted for years.</p>
+<ul>
+<li>This was fairly sufficient in the past because you could quickly repair the faulty hardware with a short downtime</li>
+<li>however, as data volumes and applications computing demands increased, more apps started needing more machines which means more HW faults.</li>
+<li>There is now a move towards systems that can tolerate the loss of an entire machine by using SW fault-tolerance techniques in addition to redundancy.
+<ul>
+<li>this also has an operational advantage: can upgrade nodes one at a time with the system still running rather than scheduling a planned downtime (i.e. rolling upgrades)</li>
+</ul>
+</li>
+</ul>
+<h4 id="software-faults">Software Faults</h4>
+<p>These are more difficult to predict and often can cause other systems connected/related systems to fail, while HW faults are generally somewhat independent events.
+Examples:
+- OS Kernel bug (Linux leap second in 2012)
+- runaway process (memory leaks)
+- a critical surface that other services relies on fails
+- cascading failures</p>
+<h4 id="human-errors">Human Errors</h4>
+<p>How to prevent?</p>
+<ul>
+<li>Design systems in a way that minimizes opportunities for error. For example, well-designed abstractions, APIs, and admin interfaces make it easy to do “the right thing” and discourage “the wrong thing.”</li>
+<li>Decouple the places where people make the most mistakes from the places where they can cause failures.</li>
+<li>Test thoroughly at all levels, from unit tests to whole-system integration tests and manual tests [3</li>
+<li>Allow quick and easy recovery from human errors, to minimize the impact in the case of a failure.</li>
+<li>Set up detailed and clear monitoring, such as performance metrics and error rates i.e. telemetry.</li>
+<li>Implement good management practices and training</li>
+</ul>
+<h3 id="scalability">Scalability</h3>
+<p>Scalability is the term we use to describe a system’s ability to cope with increased load.
+it is meaningless to say “X is scalable” or “Y doesn’t scale.”
+good examples of discussing scalabilty:
+- “If the system grows in a particular way, what are our options for coping with the growth?” <br>
+- “How can we add computing resources to handle the additional load?”</p>
+<h4 id="describing-load">Describing Load</h4>
+<p>Load can be described with a few numbers which we call &ldquo;load parameters&rdquo;. They could be:</p>
+<ul>
+<li>req/s to a webserver</li>
+<li>the ratio of reads to writes in a database -</li>
+<li>the number of simultaneously active users in a chat room -</li>
+<li>the hit rate on a cache
+or something else, depending on your application and architecture.</li>
+</ul>
+<p>Essentially, what components/inputs/pipelines/variables/etc. are going to affect the performance of your system?</p>
+<h4 id="describing-performance">Describing Performance</h4>
+<p>After describing the load, you can analyze how the performance changes when the load increases.
+2 ways to look at it:</p>
+<ul>
+<li>When you increase a load parameter and keep the system resources (CPU, memory, network bandwidth, etc.) unchanged, how is the performance of your system affected?</li>
+<li>When you increase a load parameter, how much do you need to increase the resources if you want to keep performance unchanged?</li>
+</ul>
+<p>&ndash;&gt; Throughput vs. Response Time
+Response time is actually a distribution, not a single number. It&rsquo;s also measured in avg. response time but that doesn&rsquo;t tell you how many users actually experienced that delay. <br>
+Use percentiles: Sort responses and use median to tell you what the typical user experiences. \</p>
+<p><em>Note: Latency (duration req. is waiting to be handled) and Response Time (client UX) are not exactly the same.</em></p>
+<p>High percentiles of response times, also known as <em>tail latencies</em>, are important because they directly affect users’ experience of the service.
+- EX: Amazon has also observed that a 100 ms increase in response time reduces sales by 1%<br>
+Optimizing the very high percentiles can be deemed not cost effective. But the high percentiles in general are still very important to optimize. They may be the users with the most data, i.e. the most valuable customers (like for Amazon).</p>
+<p>High percentiles become especially important in backend services that are called multiple times as part of serving a single end-user request.</p>
+<ul>
+<li>response_time = max(req1, req2, &hellip;, reqN), therefore the more requests made the higher the chance it will be slower due one slow request</li>
+<li>Known as tail latency amplification</li>
+<li>Measure with histograms</li>
+</ul>
+<h4 id="approaches-for-coping-with-load">Approaches for Coping with Load</h4>
+<p>It is likely you will need to rethink your architecture for every order of magnitude increase in load - possibly more often than that.</p>
+<p>Horizontal vs. Vertical Scaling</p>
+<ul>
+<li>
+<p>Scaling up is simpler but more expensive.</p>
+</li>
+<li>
+<p>In reality, most good archictures leverage both powerful machines and cheaper virtual machines.</p>
+</li>
+<li>
+<p>An elastic system (automatically increases resources in response to increase in load) can be useful if load is highly unpredictable, but manually scaled sys‐ tems are simpler and may have fewer operational surprises</p>
+</li>
+<li>
+<p>Making a stateful data system distributed from a single node can introduce a lot of complexity, compared to a stateless system.</p>
+</li>
+<li>
+<p><em>There is no such thing as a generic, one-size-fits-all scalable architecture</em></p>
+<ul>
+<li>this is due to load parameters and characterics of the system (reads, writes, complexity of data, access patterns, etc.)</li>
+</ul>
+</li>
+<li>
+<p>That being said, a lot of archictectures use the same building blocks and patterns.</p>
+</li>
+</ul>
+<h3 id="maintainability">Maintainability</h3>
+<p>The majority of the cost of software isn&rsquo;t the initial development but the maintainence (bugs, upgrades, new features, migration, etc).</p>
+<p>We want to design software that minimizes the maintainence overhead in the future. There&rsquo;s 3 design principles to follow:</p>
+<ul>
+<li>Operability
+<ul>
+<li>Make it easy for operations teams to keep the system running smoothly.</li>
+</ul>
+</li>
+<li>Simplicity
+<ul>
+<li>Make it easy for new engineers to understand the system, by removing as much complexity as possible from the system. (Note this is not the same as simplicity of the user interface.)</li>
+</ul>
+</li>
+<li>Evolvability
+<ul>
+<li>Make it easy for engineers to make changes to the system in the future, adapting it for unanticipated use cases as requirements change. Also known as extensibil‐ ity, modifiability, or plasticity.</li>
+</ul>
+</li>
+</ul>
+<h4 id="operability-making-life-easy-for-operations">Operability: Making Life Easy for Operations</h4>
+<p>Operations teams are vital to keeping a software system running smoothly.
+Data systems can do various things to make routine operations tasks easy, including:</p>
+<ul>
+<li>Providing visibility into the runtime behavior and internals of the system, with good monitoring</li>
+<li>Providing good support for automation and integration with standard tools</li>
+<li>Avoiding dependency on individual machines (allowing machines to be taken down for maintenance while the system as a whole continues running uninter‐ rupted)</li>
+<li>Providing good documentation and an easy-to-understand operational model (“If I do X, Y will happen”)</li>
+<li>Providing good default behavior, but also giving administrators the freedom to override defaults when needed</li>
+<li>Self-healing where appropriate, but also giving administrators manual control over the system state when needed</li>
+<li>Exhibiting predictable behavior, minimizing surprises</li>
+</ul>
+<h4 id="simplicity-managing-complexity">Simplicity: Managing Complexity</h4>
+<p>Possible symptoms of complexity:</p>
+<ul>
+<li>explosion of the state space</li>
+<li>tight coupling of modules</li>
+<li>tangled dependencies</li>
+<li>inconsistent naming and terminology</li>
+<li>hacks aimed at solving performance problems</li>
+<li>special-casing to work around issues elsewhere</li>
+<li>and many more.</li>
+</ul>
+<p>When complexity makes maintenance hard, budgets and schedules are often over‐ run. In complex software, there is also a greater risk of introducing bugs when mak‐ ing a change: when the system is harder for developers to understand and reason about, hidden assumptions, unintended consequences, and unexpected interactions are more easily overlooked.</p>
+<ul>
+<li>Reducing complexity greatly improves the maintainability of software, and thus simplicity should be a key goal for the systems we build.</li>
+<li>We want to reduce accidental complexity, meaning complexity of the implementation and not inhenrently in the problem it&rsquo;s solving.
+<ul>
+<li>Use abstration! Think about using Python to print something vs. using syscall vs. interacting with CPU registers.</li>
+</ul>
+</li>
+</ul>
+<h4 id="evolvability-making-change-easy">Evolvability: Making Change Easy</h4>
+<p>There&rsquo;s almost a constant flux in that requirements and needs of your system.</p>
+<ul>
+<li>In terms of organizational processes, Agile working patterns provide a framework for adapting to change.</li>
+<li>The ease with which you can modify a data system, and adapt it to changing require‐ ments, is closely linked to its simplicity and its abstractions: simple and easy-to- understand systems are usually easier to modify than complex ones</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li><em>Reliability</em> means making systems work correctly, even when faults occur. Faults can be in hardware (typically random and uncorrelated), software (bugs are typically sys‐ tematic and hard to deal with), and humans (who inevitably make mistakes from time to time). Fault-tolerance techniques can hide certain types of faults from the end user.</li>
+<li><em>Scalability</em> means having strategies for keeping performance good, even when load increases. In order to discuss scalability, we first need ways of describing load and performance quantitatively. We briefly looked at Twitter’s home timelines as an example of describing load, and response time percentiles as a way of measuring performance. In a scalable system, you can add processing capacity in order to remain reliable under high load.</li>
+<li><em>Maintainability</em> has many facets, but in essence it’s about making life better for the engineering and operations teams who need to work with the system. Good abstrac‐ tions can help reduce complexity and make the system easier to modify and adapt for new use cases. Good operability means having good visibility into the system’s health, and having effective ways of managing it.</li>
+</ul>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/aws-etl-youtube-pipeline/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          AWS ETL Youtube Pipeline
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/server-herd-architecture/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Server Herd Architecture
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/drone-paths/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Drone Paths
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
+  
+<script src="https://utteranc.es/client.js"
+        repo="username/username.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<style>
+    .utterances-frame {
+        background-color: transparent;
+    }
+</style>
+<script>
+    function changeTheme(theme) {
+        const message = {
+            type: "set-theme",
+            theme
+        };
+        const utteranc = document.querySelector(".utterances-frame");
+        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+    }
+
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            
+            if (!document.getElementById("darkTheme").disabled) {
+                changeTheme("photon-dark");
+            }
+            
+            document.getElementById("themer").addEventListener("click", () => {
+                changeTheme(document.getElementById("darkTheme").disabled ? "photon-dark" : "github-light");
+            });
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by
+    utterances.</a></noscript>
+
 
           
             <footer role="contentinfo">

@@ -1,7 +1,7 @@
 +++
 title = 'AWS ETL Youtube Pipeline'
 date = 2023-12-25T09:02:25-05:00
-draft = true
+draft = false
 tags = ["AWS", "Lambda", "Athena", "Glue",  "ETL", "Python", "Big Data", "Data Pipeline"]
 +++
 
@@ -13,15 +13,14 @@ tags = ["AWS", "Lambda", "Athena", "Glue",  "ETL", "Python", "Big Data", "Data P
 
 ### Introduction
 
-In this project, we're working backwards by simulating a customer's needs for a data-driven campaign. 
-
+In this project, we're simulating a client's needs for a data-driven campaign through an AWS data pipline. Such a task could be useful for a client who plans to advertise on Youtube and wants to get better insight on what factors can help make a video more popular.
+SEE LEARNING GOALS
 Questions to answer:
 - How to categorize videos based on comments and statistics
 - What factors affect how popular a Youtube video will be
 
 
-### Goals and Success Criteria
-How to measure success?
+### Goals
 We will create:
     - Data Ingestion
     - Data Lake
@@ -30,7 +29,7 @@ We will create:
     - Scalability
     - Reporting
 
-### Learning Goals
+<!-- ### Learning Goals
 
 - How to build a data lake from scratch in AWS S3
   - Joining semi-structured data and structured data
@@ -44,39 +43,43 @@ We will create:
 - Using Amazon Athena to run SQL statements against datasets
   - Impact of querying optimized data layers vs non-optimized data layers
 - Ingest changes incrementally and schema evolution
-- Business Intelligence Dashboards using AWS Quicksight
+- Business Intelligence Dashboards using AWS Quicksight 
 
 
-### big Data
+### Big Data
 - data can lose value over time
 - data from 1 second ago vs data from 2 months ago or years
   - apps vs data scientist vs BI tools vs notebooks
     - 500 gb vs 10 TB
 Challenges working with big data:
-    - with so many different roles within a single production DB, it leads to a huge bottleneck
+    - with so many different roles within a single production DB, it leads to a huge bottleneck -->
 
 
+Setting up a new adminstrator role in AWS for this project. After configuring my AWS account in the CLI and downloading my [dataset](https://www.kaggle.com/datasets/datasnaek/youtube-new) from Kaggle, I'm going to create my S3 bucket which will serve as my data lake. Then I'm going to create the objects in S3 using the CLI and a couple shell scripts (see .sh files in Github). These objects follow Hive style partitioning. 
 
 ### Data Lake Architecture
 
-We keep all our data in one centralized place, the data lake. From there, we would to like seamlessly move that data for different services, such as creating a relational DB, for big data processing, ML, or maybe log analytics.
+We keep all our data in one centralized place, the data lake. From there, we would to like seamlessly move that data for different services, such as creating a relational DB, big data processing, ML, or maybe log analytics.
 
 We want our data lakes to be scalable, performant and cost effective. We also want a unified governance. 
 
 ### Data Gravity
 As data continues to grow, it becomes harder to move. That's why our data lake architecture is really important. We use AWS Glue as a layer around our data to help manage that complexity, in terms of accessing, security, and moving. It is a data catalogue. 
 
-### AWS Glue Catalog
+### AWS Glue: Catalog
 What is it? \
 It uses a crawler that goes through our datastores, and creates a table that infers our schema in the datastore.
 Once it infers the schema, it creates the table in the Catalog. 
+We use Glue because it allows us to have a data catalog. Learn more [here](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-efficient-data-pipeline/benefits-of-using-aws-glue-for-data-integration.html).
+
+Glue creates the catalog/schema/table from our datastores using a crawler.
+
+After we've created that catalogue, we can use Glue to also to create an ETL job.
 
 
-After we've created that catalogue, we can use it for an ETL process and then put it back in another datastore. 
-
-We can also run SQL statements on that catalog using AWS Athena!
 
 ### Creating the Crawler
+We create the neccessary role and policy for the crawler allowing it to read the S3 bucket and access related services to Glue.
 We create the crawler in Glue, but first create a database to store the results of the crawler. 
 The crawler creates the data catalog in Glue so we can run SQL statements (via Athena) on it. 
 We can view the results of crawler from the DB by using Athena to query it. 

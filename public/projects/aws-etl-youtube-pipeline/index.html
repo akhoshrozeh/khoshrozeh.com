@@ -6,11 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/aws-etl-youtube-pipeline/" />
 
   
     
-    <meta name="description" content="Projects">
+    <meta name="description" content="Tech Stack ➔ Languages: SQL, Python3 ➔ Services: AWS: S3, Glue, QuickSight, Lambda, Athena, IAM ➔ SDK: AWS Data Wrangler
+Introduction In this project, we’re simulating a client’s needs for a data-driven campaign through an AWS data pipline. Such a task could be useful for a client who plans to advertise on Youtube and wants to get better insight on what factors can help make a video more popular. SEE LEARNING GOALS Questions to answer:">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -60,7 +61,7 @@
 
   
   
-  <title>Projects | Khoshrozeh</title>
+  <title>AWS ETL Youtube Pipeline | Khoshrozeh</title>
 </head>
 
   <body>
@@ -225,7 +226,7 @@
       
       
       
-      <a href="/khoshrozeh.com/projects/" aria-current="page">
+      <a href="/khoshrozeh.com/projects/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -294,68 +295,258 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Projects</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use href="#bookmark"></use>
+      </svg>
+      AWS ETL Youtube Pipeline
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Dec 25, 2023
+      
+        
+          <br>
+          <strong>Last updated: </strong>Feb 1, 2024
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/AWS/">AWS</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Lambda/">Lambda</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Athena/">Athena</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Glue/">Glue</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/ETL/">ETL</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Python/">Python</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Big-Data/">Big Data</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use href="#tag"></use>
+              </svg>
+              
+              <a href="/khoshrozeh.com/tags/Data-Pipeline/">Data Pipeline</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+
+
+    <h3 id="tech-stack">Tech Stack</h3>
+<p><em>➔ Languages:</em> SQL, Python3 <br>
+<em>➔ Services:</em> AWS: S3, Glue, QuickSight, Lambda, Athena, IAM
+<em>➔ SDK:</em> AWS Data Wrangler</p>
+<h3 id="introduction">Introduction</h3>
+<p>In this project, we&rsquo;re simulating a client&rsquo;s needs for a data-driven campaign through an AWS data pipline. Such a task could be useful for a client who plans to advertise on Youtube and wants to get better insight on what factors can help make a video more popular.
+SEE LEARNING GOALS
+Questions to answer:</p>
+<ul>
+<li>How to categorize videos based on comments and statistics</li>
+<li>What factors affect how popular a Youtube video will be</li>
+</ul>
+<h3 id="goals">Goals</h3>
+<p>We will create:
+- Data Ingestion
+- Data Lake
+- AWS Cloud
+- ETL Design
+- Scalability
+- Reporting</p>
+<!-- ### Learning Goals
+
+- How to build a data lake from scratch in AWS S3
+  - Joining semi-structured data and structured data
+- Lake House architecture design
+  - Best practices for cost and performance
+- Data Lake vs. Data Warehouse
+- Data Lake design in layers, partitioned for cost-performance
+- AWS Data Catalogue
+- Designing and Developing ETL in AWS Glue using Spark Jobs
+- Amazon SNS for Alerting
+- Using Amazon Athena to run SQL statements against datasets
+  - Impact of querying optimized data layers vs non-optimized data layers
+- Ingest changes incrementally and schema evolution
+- Business Intelligence Dashboards using AWS Quicksight 
+
+
+### Big Data
+- data can lose value over time
+- data from 1 second ago vs data from 2 months ago or years
+  - apps vs data scientist vs BI tools vs notebooks
+    - 500 gb vs 10 TB
+Challenges working with big data:
+    - with so many different roles within a single production DB, it leads to a huge bottleneck -->
+<p>Setting up a new adminstrator role in AWS for this project. After configuring my AWS account in the CLI and downloading my <a href="https://www.kaggle.com/datasets/datasnaek/youtube-new">dataset</a> from Kaggle, I&rsquo;m going to create my S3 bucket which will serve as my data lake. Then I&rsquo;m going to create the objects in S3 using the CLI and a couple shell scripts (see .sh files in Github). These objects follow Hive style partitioning.</p>
+<h3 id="data-lake-architecture">Data Lake Architecture</h3>
+<p>We keep all our data in one centralized place, the data lake. From there, we would to like seamlessly move that data for different services, such as creating a relational DB, big data processing, ML, or maybe log analytics.</p>
+<p>We want our data lakes to be scalable, performant and cost effective. We also want a unified governance.</p>
+<h3 id="data-gravity">Data Gravity</h3>
+<p>As data continues to grow, it becomes harder to move. That&rsquo;s why our data lake architecture is really important. We use AWS Glue as a layer around our data to help manage that complexity, in terms of accessing, security, and moving. It is a data catalogue.</p>
+<h3 id="aws-glue-catalog">AWS Glue: Catalog</h3>
+<p>What is it? <br>
+It uses a crawler that goes through our datastores, and creates a table that infers our schema in the datastore.
+Once it infers the schema, it creates the table in the Catalog.
+We use Glue because it allows us to have a data catalog. Learn more <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-efficient-data-pipeline/benefits-of-using-aws-glue-for-data-integration.html">here</a>.</p>
+<p>Glue creates the catalog/schema/table from our datastores using a crawler.</p>
+<p>After we&rsquo;ve created that catalogue, we can use Glue to also to create an ETL job.</p>
+<h3 id="creating-the-crawler">Creating the Crawler</h3>
+<p>We create the neccessary role and policy for the crawler allowing it to read the S3 bucket and access related services to Glue.
+We create the crawler in Glue, but first create a database to store the results of the crawler.
+The crawler creates the data catalog in Glue so we can run SQL statements (via Athena) on it.
+We can view the results of crawler from the DB by using Athena to query it.
+There needs to somewhere to place the results of the query, so we create another S3 bucket.</p>
+<p>However, Athena can&rsquo;t read our JSON. We need to build a simple ETL to transform the semi-structured JSON to structured DB.</p>
+<p>Athena uses SerDe, which is a serializer and deserializer.
+So let&rsquo;s do the data cleansing by creating a light ETL.
+JSON -&gt; Apache Parquet
+Parquet is columnar, meaning if only want a particular column, we don&rsquo;t have to read the entire row unlike in relational DBs like MySQL, which can be a bottleneck in 100 column table, for example.</p>
+<h3 id="building-the-data-cleansing-pipeline-semi-structured-to-structured-data">Building the Data Cleansing Pipeline: Semi-structured to structured data</h3>
+<p>JSON =&gt; AWS S3 Raw Bucket &lt;= AWS Lambda (JSON to Apache Parquet)</p>
+<p>Tools:</p>
+<ul>
+<li>AWS Lambda</li>
+<li>Data Wrangler</li>
+<li>Pandas</li>
+</ul>
+<p>Why Lambda? Spark is too large of a framework for this instance. Lambda is the best service for this use case. It&rsquo;s
+Lambda is a compute engine but not meant to process large amounts of data, like 100GB. It&rsquo;s not the correct service to process more than like 5GB of data.
+limits of lambda:
+- 10gb of memory
+- 50mb deployment package
+- 6 vCPUs
+- 15 min timeout</p>
+<p>In our data lake, we have S3 buckets for:</p>
+<ol>
+<li>Landing Area (JSON, csv, etc. files)</li>
+<li>Cleansed/Enriched (optimized into a format like Apache Parquet)</li>
+<li>Deduped</li>
+<li>Conformed</li>
+</ol>
+<p>We get from stage 1 to 2 using Lambda. The code we&rsquo;ll upload to Lambda will be in Python and uses AWS Data Wrangler. AWS Data Wrangler is an open-source Python library developed by Amazon Web Services (AWS) that simplifies data preparation and integration with various AWS data services.</p>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/aws-etl-youtube-pipeline/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          AWS ETL Youtube Pipeline
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/server-herd-architecture/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Server Herd Architecture
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/drone-paths/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Drone Paths
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
+  
+<script src="https://utteranc.es/client.js"
+        repo="username/username.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<style>
+    .utterances-frame {
+        background-color: transparent;
+    }
+</style>
+<script>
+    function changeTheme(theme) {
+        const message = {
+            type: "set-theme",
+            theme
+        };
+        const utteranc = document.querySelector(".utterances-frame");
+        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+    }
+
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            
+            if (!document.getElementById("darkTheme").disabled) {
+                changeTheme("photon-dark");
+            }
+            
+            document.getElementById("themer").addEventListener("click", () => {
+                changeTheme(document.getElementById("darkTheme").disabled ? "photon-dark" : "github-light");
+            });
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by
+    utterances.</a></noscript>
+
 
           
             <footer role="contentinfo">

@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Sep 2023 00:25:08 +0800</lastBuildDate><atom:link href="https://akhoshrozeh.github.io/khoshrozeh.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Reliable, Scalable, and Maintainable Applications</title>
+      <link>https://akhoshrozeh.github.io/khoshrozeh.com/DDIA-ch1/</link>
+      <pubDate>Fri, 29 Dec 2023 17:05:43 -0500</pubDate>
+      
+      <guid>https://akhoshrozeh.github.io/khoshrozeh.com/DDIA-ch1/</guid>
+      <description>Note: The following information comes Martin Kleppmann&amp;rsquo;s &amp;ldquo;Designing Data-Intensive Applications&amp;rdquo;. The following post is a recap/discussion of ideas from Chapter 1.
+Introduction In this post, we&amp;rsquo;re going to look at what we mean by the terms reliable, scalable and maintainable. We&amp;rsquo;re also going to examine how we can try to achieve these goals for our system.
+Apps are data intensive, not computationally expensive
+problems: amount, complexity, and rate of change of data</description>
+    </item>
+    
+    <item>
       <title>Network Device Hardening</title>
       <link>https://akhoshrozeh.github.io/khoshrozeh.com/network-device-hardening/</link>
       <pubDate>Thu, 28 Sep 2023 18:11:55 +0800</pubDate>

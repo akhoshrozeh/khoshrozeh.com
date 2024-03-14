@@ -5,7 +5,7 @@ draft = false
 +++
 
 Hello!
-I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022. I'm very passionate about all things related to cybersecurity, in particular penetration testing and hardening systems' security (networks, OS, software). I love learning new things and challenging myself through CTFs.
+I was born and raised in Los Angeles, CA. I graduated from UCLA with a B.S. in Computer Science in 2022. I have a strong interest in distributed systems. 
 
 I am currently looking for positions as a software engineer, backend developer or full stack engineer. 
 
