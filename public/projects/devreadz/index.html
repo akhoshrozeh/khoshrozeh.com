@@ -6,11 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.118.2">
-  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/" />
+  <link rel="canonical" href="https://akhoshrozeh.github.io/khoshrozeh.com/projects/devreadz/" />
 
   
     
-    <meta name="description" content="Projects">
+    <meta name="description" content="https://devreadz.com
+Introduction DevReadz is an aggregation site that provides references to useful engineering articles written by top tech companies. It allows for users to by topics and/or keywords (not implemented).
+Inspiration The big O’Reilly books are great for general principles and developing your theoretical understanding but it always feel just a little detached. And it’s hard to find real production level examples of solutions on Youtube. Which is my I like the engineering blogs of the top tech companies.">
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://akhoshrozeh.github.io/khoshrozeh.com/apple-touch-icon.png">
@@ -60,7 +62,7 @@
 
   
   
-  <title>Projects | Khoshrozeh</title>
+  <title>DevReadz | Khoshrozeh</title>
 </head>
 
   <body>
@@ -225,7 +227,7 @@
       
       
       
-      <a href="/khoshrozeh.com/projects/" aria-current="page">
+      <a href="/khoshrozeh.com/projects/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use href="#bookmark"></use>
         </svg>
@@ -294,84 +296,111 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Projects</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use href="#bookmark"></use>
+      </svg>
+      DevReadz
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Mar 23, 2024
+      
+        
+      
+    </div>
+
+    
+
+    
+
+
+    <p><a href="https://devreadz.com">https://devreadz.com</a></p>
+<h3 id="introduction">Introduction</h3>
+<p><a href="https://devreadz.com">DevReadz</a> is an aggregation site that provides references to useful engineering articles written by top tech companies. It allows for users to by topics and/or keywords (not implemented).</p>
+<h3 id="inspiration">Inspiration</h3>
+<p>The big O&rsquo;Reilly books are great for general principles and developing your theoretical understanding but it always feel just a little detached. And it&rsquo;s hard to find real production level examples of solutions on Youtube. Which is my I like the engineering blogs of the top tech companies. So why not build a site which aggregates those articles?</p>
+<!-- *Note:* Under construction.  -->
+<h3 id="design">Design</h3>
+<p>Two important characteristics of this project:
+- our data input isn&rsquo;t frequently updated. These companies usually publish an article or two a month. So we won&rsquo;t need to query our endpoints often.
+- the data we&rsquo;re storing is relatively small, since we&rsquo;re collecting small data from a small number of sources.</p>
+<p>With that in mind, it didn&rsquo;t really make since to setup a server, as I could just host a static site (for the time being).
+I can just store the backend aggregation scripts and store the data on my local computer. I can then setup cron to run these every couple weeks or so. After the scripts run and data files are updated, I can just re-build and re-deploy using Github&rsquo;s CI/CD.</p>
+<p>Keep it simple when you can!</p>
+<h3 id="getting-the-data">Getting the Data</h3>
+<p>Some of the engineering blogs, I&rsquo;ll have scrape the data using BeautifulSoup in Python. Others that may use another blogging platform, such as Medium, will have an API available so I won&rsquo;t have to scrape it myself.</p>
+<p>Now, with the data I have (article titles, links, tags, etc.), I need to store it persistently. Honestly, I could probably get away with just storing it as a JSON file. But I&rsquo;ll probably setup a DB just to make the data more manageable in case I add more features in the future.</p>
+<p>Check it <a href="https://akhoshrozeh.github.io/tech-blog-aggregator/">out</a>!</p>
+<p>Note: I just started this project so there&rsquo;ll be a lot more improvements coming soon!</p>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/devreadz/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          DevReadz
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/aws-etl-youtube-pipeline/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          AWS ETL Youtube Pipeline
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/server-herd-architecture/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Server Herd Architecture
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/khoshrozeh.com/projects/drone-paths/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          Drone Paths
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
+  
+<script src="https://utteranc.es/client.js"
+        repo="username/username.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<style>
+    .utterances-frame {
+        background-color: transparent;
+    }
+</style>
+<script>
+    function changeTheme(theme) {
+        const message = {
+            type: "set-theme",
+            theme
+        };
+        const utteranc = document.querySelector(".utterances-frame");
+        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+    }
+
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            
+            if (!document.getElementById("darkTheme").disabled) {
+                changeTheme("photon-dark");
+            }
+            
+            document.getElementById("themer").addEventListener("click", () => {
+                changeTheme(document.getElementById("darkTheme").disabled ? "photon-dark" : "github-light");
+            });
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by
+    utterances.</a></noscript>
+
 
           
             <footer role="contentinfo">

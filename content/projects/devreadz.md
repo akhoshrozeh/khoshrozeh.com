@@ -1,14 +1,14 @@
 +++
-title = 'TechTrove'
+title = 'DevReadz'
 date = 2024-03-23T01:07:43-07:00
 draft = false
 tags = []
 +++
 
-https://akhoshrozeh.github.io/tech-blog-aggregator/
+https://devreadz.com
 
 ### Introduction
-[TechTrove](https://akhoshrozeh.github.io/tech-blog-aggregator/) (placeholder name) is an aggregation site that provides references to useful engineering articles written by top tech companies. It allows for users to by topics and/or keywords (not implemented).
+[DevReadz](https://devreadz.com) is an aggregation site that provides references to useful engineering articles written by top tech companies. It allows for users to by topics and/or keywords (not implemented).
 
 ### Inspiration
 The big O'Reilly books are great for general principles and developing your theoretical understanding but it always feel just a little detached. And it's hard to find real production level examples of solutions on Youtube. Which is my I like the engineering blogs of the top tech companies. So why not build a site which aggregates those articles?  
